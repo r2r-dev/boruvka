@@ -1,3 +1,4 @@
+Beaker==1.7.0
 gunicorn==19.4.1
 MySQL-python==1.2.5
 passlib==1.6.5
