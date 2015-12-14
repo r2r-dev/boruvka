@@ -1,0 +1,228 @@
+/* Main styles */
+
+body {
+	font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+	overflow: hidden;
+	margin: 0;
+	color: #cecece;
+	background: #2a2b30;
+	-webkit-font-smoothing: antialiased;
+}
+
+.container {
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.header {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    padding: 5vh 0 0 0;
+    align-items: center;
+}
+
+.info {
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 1em 1em 0;
+    text-align: center;
+    color: #47484c;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    outline: none;
+}
+
+a:hover {
+    color: #ddd;
+}
+
+/* Logo styles */
+
+.logo-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 120px;
+    padding: 1em 0 0 0;
+    text-align: center;
+    background: #1c1d22;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto;
+    max-width:100px;
+    max-height:100px;
+    width: auto;
+    height: auto;
+}
+
+/* Form styles */
+
+.action:focus {
+    outline: none;
+}
+
+.action {
+    display: inline-block;
+    font-size: 1em;
+    white-space: nowrap;
+    padding: 0.85em 1.25em;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    text-align: center;
+}
+
+.action-login {
+    -webkit-align-self: center;
+    align-self: center;
+    margin-top: 1em;
+    -webkit-flex: none;
+    -ms-flex: none;
+    flex: none;
+}
+
+.action-button {
+    background: #2C2D34;
+    color: #fff;
+    border-radius: 2px;
+    -webkit-transition: background 0.2s;
+    transition: background 0.2s;
+    width: auto;
+    cursor: pointer;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+}
+
+.action-button:hover {
+    background: #5C5EDC;
+}
+
+.action-text {
+    font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: .813em;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.submit-wrap {
+    padding-top: 40px;
+    clear: both;
+}
+
+label {
+    display: block;
+    padding: 40px 5px 5px 2px;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+input {
+    font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-size: 1.4em;
+    padding: 5px 10px;
+    color: #47484c;
+    #display: block;
+    #width: 100%;
+    background: transparent;
+}
+
+.form-content {
+    position: relative;
+    min-height: 300px;
+    margin: 0 auto;
+}
+
+/* Content styles */
+
+.content {
+    position: relative;
+    min-height: 300px;
+    margin: 0 0 0 300px;
+}
+
+.tiles {
+	margin: 0;
+	padding: 2em;
+	text-align: center;
+}
+
+.tile {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	margin: 10px;
+	border-radius: 5px;
+	background: #1c1d22;
+}
+
+.tile .icon {
+	font-size: 4em;
+	line-height: 190px;
+	color: #3b3d4a;
+}
+
+/* Menu styles */
+
+.menu {
+    position: fixed;
+    top: 120px;
+    left: 0;
+    width: 300px;
+    height: calc(100vh - 120px);
+    background: #1c1d22;
+}
+
+.menu-wrap {
+    position: absolute;
+    top: 0.5em;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.menu-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: visible;
+    overflow: hidden;
+    overflow-y: scroll;
+    width: calc(100% + 50px);
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.menu-item {
+    display: block;
+    width: calc(100% - 50px);
+}
+
+.menu-link {
+    font-weight: 600;
+    position: relative;
+    display: block;
+    padding: 1em 2.5em 1em 1.5em;
+    color: #bdbdbd;
+    -webkit-transition: color 0.1s;
+    transition: color 0.1s;
+}
+
+.menu-link:hover{
+    color: #5c5edc;
+}

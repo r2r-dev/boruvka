@@ -1,0 +1,8 @@
+{
+  "admin_user": "admin",
+  "admin_password": "password",
+  "database_host": "localhost",
+  "database_port": 3306,
+  "database_user": "root",
+  "database_password": "reverse"
+}
