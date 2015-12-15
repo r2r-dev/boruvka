@@ -65,7 +65,7 @@ class BoruvkaAuthApi(BoruvkaBaseApi):
             )
             token_date = datetime.utcfromtimestamp(token.expirationDate)
             if token_date > datetime.now():
-                return token.value
+                return user.id, token.value
 
         # generate token
         token_value, token_date = self.__generate_token()
@@ -79,7 +79,7 @@ class BoruvkaAuthApi(BoruvkaBaseApi):
         self._dao.update(user)
 
         # api call returns token, whilst webapp sets cookie
-        return token.value
+        return user.id, token.value
 
     def verify_token(self, token_value):
         auth_query = BoruvkaAuthQuery(self._dao)

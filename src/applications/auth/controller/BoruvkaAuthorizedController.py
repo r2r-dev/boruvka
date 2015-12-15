@@ -6,7 +6,7 @@ from webob import exc, Response
 
 class BoruvkaAuthorizedController(BoruvkaBaseController):
     def __before__(self):
-        # One might pass token in either header (API) or cookie (webapp)
+        # One might be authorized either via session (web) or Token (api)
         if self.request.path.startswith("/api"):
             authorization_header = self.request.authorization
             if authorization_header is None:
@@ -16,8 +16,8 @@ class BoruvkaAuthorizedController(BoruvkaBaseController):
                 return self.__verify_token(authorization_header[1])
             else:
                 return exc.HTTPUnauthorized()
-        elif 'Token' in self.request.cookies:
-                return self.__verify_token(self.request.cookies['Token'])
+        elif 'user_id' in self.session:
+            return Response()
         else:
             return self.__authorize()
 

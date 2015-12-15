@@ -7,8 +7,8 @@ class BoruvkaAuthLoginApiController(BoruvkaBaseController):
     def post(self):
 
         api = BoruvkaAuthApi(self.dao)
-        response = api.login(
+        user_id, token_value = api.login(
             payload=self.request.text,
         )
 
-        return response
+        return token_value

@@ -21,16 +21,19 @@ class BoruvkaAuthLoginController(BoruvkaBaseController):
         request_dict = {}
         for key, value in params.items():
             request_dict[key] = value
-        api_response = api.login(
+        user_id, token_value = api.login(
             payload=request_dict,
         )
 
-        if api_response:
+        if user_id:
+            self.session['user_id'] = user_id
             response = exc.HTTPMovedPermanently(location=self.request.application_url)
             response.set_cookie(
                 name='Token',
-                value=api_response,
+                value=token_value,
             )
+            self.session.save()
+            self.session.persist()
             return response
         else:
             response = exc.HTTPUnauthorized()

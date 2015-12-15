@@ -13,6 +13,7 @@ class BoruvkaBaseController(object):
     def __init__(self, request, link, **config):
         self.request = request
         self.link = link
+        self.session = self.request.environ['beaker.session']
         for name, value in config.items():
             setattr(
                 self,
