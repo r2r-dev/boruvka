@@ -1,9 +1,10 @@
+from src.applications.auth.application.BoruvkaAuthApplication import BoruvkaAuthApplication
 from src.applications.base.application.BoruvkaBaseApplication import BoruvkaBaseApplication
 from src.applications.dispatcher.application.BoruvkaDispatcherApiApplication import BoruvkaDispatcherApiApplication
 from src.applications.hello.application.BoruvkaHelloApplication import BoruvkaHelloApplication
 from src.applications.home.application.BoruvkaHomeApplication import BoruvkaHomeApplication
-from src.applications.auth.application.BoruvkaAuthApplication import BoruvkaAuthApplication
-from src.dao.BoruvkaSQLDao import BoruvkaSQLDao
+from src.utils.dao.BoruvkaSQLDao import BoruvkaSQLDao
+from src.conf import settings
 
 
 class BoruvkaDispatcherApplication(BoruvkaBaseApplication):
@@ -14,13 +15,14 @@ class BoruvkaDispatcherApplication(BoruvkaBaseApplication):
         )
 
         dao = BoruvkaSQLDao(
-            host=self.config['database_host'],
-            username=self.config['database_username'],
-            password=self.config['database_password'],
-            database=self.config['database'],
+            host=settings.db_host,
+            username=settings.db_username,
+            password=settings.db_password,
+            database=settings.db_database,
             keepalive=False,
             autocommit=True,
         )
+
         self._dispatch_config = {
             'dao': dao,
         }

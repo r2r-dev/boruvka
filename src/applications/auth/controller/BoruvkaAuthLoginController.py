@@ -1,5 +1,6 @@
 from src.applications.base.controller.BoruvkaBaseController import BoruvkaBaseController
 from src.applications.auth.api.BoruvkaAuthApi import BoruvkaAuthApi
+from src.applications.auth.view.BoruvkaAuthLoginView import BoruvkaAuthLoginView
 from webob import (
     Response,
     exc,
@@ -10,9 +11,13 @@ from webob import (
 class BoruvkaAuthLoginController(BoruvkaBaseController):
     def get(self):
         # TODO: plug in templating system
-        view_path = 'webroot/html/login.html'
+        # TODO: pass language from Accept-Language header
+        view = BoruvkaAuthLoginView(
+            template='webroot/html/BoruvkaAuthLoginTemplate.tmpl',
+            translation="pl",
+        )
         response = Response()
-        response.body = open(view_path, 'rb').read()
+        response.body = view.render()
         return response
 
     def post(self):
