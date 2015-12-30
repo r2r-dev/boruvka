@@ -10,12 +10,9 @@ from webob import (
 # Open database connection
 class BoruvkaAuthLoginController(BoruvkaBaseController):
     def get(self):
-        # TODO: plug in templating system
-        # TODO: pass language from Accept-Language header
-        view = BoruvkaAuthLoginView(
-            template='webroot/html/BoruvkaAuthLoginTemplate.tmpl',
-            translation="pl",
-        )
+        # TODO: move translations handling to BaseController
+        translation = list(self.request.accept_language)[0]
+        view = BoruvkaAuthLoginView(translation)
         response = Response()
         response.body = view.render()
         return response
@@ -41,5 +38,11 @@ class BoruvkaAuthLoginController(BoruvkaBaseController):
             self.session.persist()
             return response
         else:
-            response = exc.HTTPUnauthorized()
+            # TODO: move translations handling to BaseController
+            translation = list(self.request.accept_language)[0]
+            view = BoruvkaAuthLoginView(translation)
+            view.error = "Unauthorized"
+            response = Response()
+            response.body = view.render()
+            #response = exc.HTTPUnauthorized()
         return response

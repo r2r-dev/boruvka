@@ -1,7 +1,7 @@
 <html>
 
 <head>
-	<title>Boruvka: Login Page</title>
+	<title>Boruvka: Register Page</title>
 	<meta name="description" content="Boruvka: Orchestration made simple" />
 	<meta name="author" content="Artur Stachecki" />
 	<link rel="shortcut icon" href="../img/favicon.ico">
@@ -16,19 +16,18 @@
 
 		<div class="form-content">
 			<form method="POST" class="info">
-				{{if error}}
-                <div class="notification error">{{error}}</div>
-                {{endif}}
                 <label for="username">{{username}}</label>
 				<input type="text" id="username" name="username">
                 <label for="password">{{password}}</label>
                 <input type="password" id="password" name="password">
+				<label for="password_confirm">{{password_confirm}}</label>
+                <input type="password" id="password_confirm" name="password_confirm">
                 <div class="submit-wrap">
 				    <button class="action action-login action-button" type="submit">
-    					<span class="action-text">{{login}}</span>
+    					<span class="action-text">{{register}}</span>
     				</button>
-                    <div class="form-link">
-                        <a class="form-link" href="/auth/register">{{register}}</a>
+					<div class="form-link">
+                        <a class="form-link" href="/auth/login">{{login}}</a>
                     </div>
                 </div>
 			</form>

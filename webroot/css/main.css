@@ -30,6 +30,16 @@ body {
     color: #47484c;
 }
 
+.notification {
+    margin-top: 40px;
+    padding: 12px;
+}
+
+.notification.error {
+    color: #fff;
+    background: #872CC5;
+}
+
 a {
     text-decoration: none;
     color: #fff;
@@ -89,7 +99,7 @@ a:hover {
 }
 
 .action-button {
-    background: #2C2D34;
+    background: #47484c;
     color: #fff;
     border-radius: 2px;
     -webkit-transition: background 0.2s;
@@ -144,7 +154,25 @@ input {
     position: relative;
     min-height: 300px;
     margin: 0 auto;
+    max-width: 345px;
+    min-width: 345px;
 }
+
+.form-link a {
+    color: #bdbdbd;
+    -webkit-transition: color 0.1s;
+    transition: color 0.1s;
+}
+
+div.form-link {
+    padding: 1em 1em 1em 1em;
+    display: block;
+}
+
+.form-link a:hover {
+    color: #5c5edc;
+}
+
 
 /* Content styles */
 

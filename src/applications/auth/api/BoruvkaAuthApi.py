@@ -56,7 +56,7 @@ class BoruvkaAuthApi(BoruvkaBaseApi):
         )
 
         if not user:
-            return None
+            return None, None
 
         auth_query = BoruvkaAuthQuery(self._dao)
         if user.tokenId:

@@ -1,4 +1,5 @@
 from src.applications.base.controller.BoruvkaBaseController import BoruvkaBaseController
+from src.applications.auth.view.BoruvkaAuthRegisterView import BoruvkaAuthRegisterView
 from src.applications.auth.api.BoruvkaAuthApi import BoruvkaAuthApi
 from webob import (
     exc,
@@ -8,13 +9,14 @@ from webob import (
 
 class BoruvkaAuthRegisterController(BoruvkaBaseController):
     def get(self):
-        # TODO: plug in templating system
-        view_path = 'webroot/html/register.html'
+        translation = list(self.request.accept_language)[0]
+        view = BoruvkaAuthRegisterView(translation)
         response = Response()
-        response.body = open(view_path, 'rb').read()
+        response.body = view.render()
         return response
 
     def post(self):
+        # TODO: check whether passwords match
         params = self.request.params
         api = BoruvkaAuthApi(self.dao)
         response_dict = {}

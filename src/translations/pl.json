@@ -2,5 +2,6 @@
   "Username": "Nazwa Uzytkownika",
   "Password": "Haslo",
   "Login": "Zaloguj",
-  "Register": "Zarejestruj"
+  "Register": "Zarejestruj",
+  "Confirm Password": "Potwierdz Haslo"
 }

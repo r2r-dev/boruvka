@@ -8,11 +8,11 @@ class BoruvkaBaseView(object):
         if language:
             translation(language)
 
-        self._template = HTMLTemplate.from_filename(template)
+        self._page = HTMLTemplate.from_filename(template)
 
     # Probably not the best solution...
     def render(self):
-        return self._template.substitute(self.__dict__)
+        return self._page.substitute(self.__dict__)
 
     def __setattr__(self, key, value):
         if isinstance(value, basestring):
