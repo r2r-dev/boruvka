@@ -52,7 +52,7 @@ a:hover {
 
 /* Logo styles */
 
-.logo-wrap {
+.logo-header {
     position: fixed;
     top: 0;
     left: 0;
@@ -63,7 +63,7 @@ a:hover {
     background: #1c1d22;
 }
 
-.logo {
+.logo-img {
     display: block;
     margin: 0 auto;
     max-width:100px;

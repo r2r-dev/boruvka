@@ -3,5 +3,10 @@
   "Password": "Haslo",
   "Login": "Zaloguj",
   "Register": "Zarejestruj",
-  "Confirm Password": "Potwierdz Haslo"
+  "Confirm Password": "Potwierdz Haslo",
+  "Home Page": "Strona Glowna",
+  "Users": "Uzytkownicy",
+  "Tasks": "Zadania",
+  "Machines": "Maszyny",
+  "Settings": "Ustawienia"
 }
