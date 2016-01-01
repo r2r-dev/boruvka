@@ -7,12 +7,21 @@
     	<meta name="author" content="Artur Stachecki">
     	<link rel="shortcut icon" href="../img/favicon.ico">
     	<link rel="stylesheet" type="text/css" href="../css/main.css">
-    	<link rel="stylesheet" type="text/css" href="../css/supp.css">
+    	<link rel="stylesheet" type="text/css" href="../css/user.css">
+        <link rel="stylesheet" type="text/css" href="../css/modal.css">
     </head>
     
     <body>
         <div class="container">
-
+            <div class="modal modal-effect" id="modal-profile">
+    			<div class="modal-content">
+    				<h3>Modal Dialog</h3>
+    				<div>
+    					<p>This is a modal window.</p>
+    					<button class="modal-close">Close</button>
+    				</div>
+    			</div>
+    		</div>
         	<header class="header">
         		<div class="logo-header">
         			<img class="logo-img" src="../img/logo1.png">
@@ -20,10 +29,10 @@
         		<div class="user-header">
         				<h1 class="user-header__title">{{user}}</h1>
         				<nav class="user-nav">
-        					<a class="user-nav__item user-icon user-icon--profile" href="#" data-info="Profile">
+        					<a class="user-nav__item user-icon icon-settings modal-trigger" href="#" data-info="Profile" data-modal="modal-profile">
                                 <span>Profile</span>
                             </a>
-        					<a class="user-nav__item user-icon user-icon--logout" href="#" data-info="Logout">
+        					<a class="user-nav__item user-icon icon-exit" href="#" data-info="Logout">
                                 <span>Logout</span>
                             </a>
         				</nav>
@@ -51,8 +60,9 @@
         			</li>
         		</ul>
             </div>
-
+        <div class="modal-overlay"></div>
         </div>
+        <script src="../js/modal.js"></script>
     </body>
 
 </html>

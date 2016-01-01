@@ -1,19 +1,48 @@
 @font-face {
-    font-family: 'icomoon';
-    src:    url('../fonts/icomoon.eot?mvqxdo');
-    src:    url('../fonts/icomoon.eot?mvqxdo#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?mvqxdo') format('truetype'),
-        url('../fonts/icomoon.woff?mvqxdo') format('woff'),
-        url('../fonts/icomoon.svg?mvqxdo#icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal;
+	font-family: "Flaticon";
+	src: url("../fonts/flaticon.eot");
+	src: url("../fonts/flaticon.eot#iefix") format("embedded-opentype"),
+	url("../fonts/flaticon.woff") format("woff"),
+	url("../fonts/flaticon.ttf") format("truetype"),
+	url("../fonts/flaticon.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
 }
 
-.icon-user:before {
-    content: "\e900";
+.icon-calendar:after {
+	content: "\e000";
 }
-.icon-exit:before {
-    content: "\e901";
+
+.icon-cancel:after {
+	content: "\e001";
+}
+
+.icon-exit:after {
+	content: "\e002";
+}
+
+.icon-more:after {
+	content: "\e003";
+}
+
+.icon-pause:after {
+	content: "\e004";
+}
+
+.icon-play:after {
+	content: "\e005";
+}
+
+.icon-bin:after {
+	content: "\e006";
+}
+
+.icon-settings:after {
+	content: "\e007";
+}
+
+.icon-dot:after {
+	content: "\e008";
 }
 
 .user-header {
@@ -45,7 +74,7 @@
 	text-indent: 0;
 	letter-spacing: 0;
 	text-transform: none;
-	color: #fff;
+	color: #cecece;
 	background: #5c5edc;
 }
 
@@ -81,8 +110,8 @@
 }
 
 .user-icon:after {
-	font-family: 'icomoon';
-	font-weight: normal;
+	font-family: Flaticon;
+	font-weight: bold;
 	font-style: normal;
 	font-variant: normal;
 	text-align: center;
@@ -103,15 +132,7 @@
 }
 
 .user-nav a:hover:after {
-	color: #fff;
-}
-
-.user-icon--logout:after {
-    content: "\e901";
-}
-
-.user-icon--profile:after {
-    content: "\e900";
+	color: #cecece;
 }
 
 .user-nav {

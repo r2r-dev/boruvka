@@ -14,6 +14,10 @@ body {
     height: 100vh;
 }
 
+.container.login {
+    background: #1c1d22;
+}
+
 .header {
     display: -webkit-flex;
     display: flex;
@@ -36,13 +40,13 @@ body {
 }
 
 .notification.error {
-    color: #fff;
+    color: #cecece;
     background: #872CC5;
 }
 
 a {
     text-decoration: none;
-    color: #fff;
+    color: #cecece;
     outline: none;
 }
 
@@ -99,8 +103,8 @@ a:hover {
 }
 
 .action-button {
-    background: #47484c;
-    color: #fff;
+    background: #2A2B30;
+    color: #cecece;
     border-radius: 2px;
     -webkit-transition: background 0.2s;
     transition: background 0.2s;
@@ -170,7 +174,7 @@ div.form-link {
 }
 
 .form-link a:hover {
-    color: #5c5edc;
+    color: #5C5EDC;
 }
 
 
@@ -252,5 +256,5 @@ div.form-link {
 }
 
 .menu-link:hover{
-    color: #5c5edc;
+    color: #5C5EDC;
 }
