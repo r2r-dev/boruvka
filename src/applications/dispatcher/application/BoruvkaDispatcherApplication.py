@@ -39,11 +39,6 @@ class BoruvkaDispatcherApplication(BoruvkaBaseApplication):
             app=BoruvkaDispatcherApiApplication,
         )
         self.mapper.connect(
-            'hello',
-            '/hello{path_info:.*}',
-            app=BoruvkaHelloApplication,
-        )
-        self.mapper.connect(
             'auth',
             '/auth{path_info:.*}',
             app=BoruvkaAuthApplication,
