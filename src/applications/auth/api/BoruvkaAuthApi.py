@@ -93,6 +93,14 @@ class BoruvkaAuthApi(BoruvkaBaseApi):
                 return True
         return False
 
+    def invalidate_token(self, token_value):
+        auth_query = BoruvkaAuthQuery(self._dao)
+        token = auth_query.get_token(
+            value=token_value,
+        )
+        token.expirationDate = 0
+        self._dao.update(token)
+
     def __hash_password(self, username, password):
         count = 0
         salt = ''

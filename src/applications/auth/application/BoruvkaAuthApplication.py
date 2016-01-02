@@ -1,5 +1,6 @@
 from src.applications.base.application.BoruvkaBaseApplication import BoruvkaBaseApplication
 from src.applications.auth.controller.BoruvkaAuthLoginController import BoruvkaAuthLoginController
+from src.applications.auth.controller.BoruvkaAuthLogoutController import BoruvkaAuthLogoutController
 from src.applications.auth.controller.BoruvkaAuthRegisterController import BoruvkaAuthRegisterController
 
 
@@ -32,4 +33,11 @@ class BoruvkaAuthApplication(BoruvkaBaseApplication):
             controller=BoruvkaAuthRegisterController,
             conditions=dict(method=["POST"]),
             action='post',
+        )
+        self.mapper.connect(
+            'auth',
+            '/auth/logout',
+            controller=BoruvkaAuthLogoutController,
+            conditions=dict(method=["GET"]),
+            action='get',
         )
