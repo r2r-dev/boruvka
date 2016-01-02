@@ -1,0 +1,33 @@
+{{if _full}}
+<html>
+
+    <head>
+    	<meta charset="UTF-8">
+    	<title>Boruvka: {{title}}</title>
+    	<meta name="description" content="Boruvka: Orchestration made simple">
+    	<meta name="author" content="Artur Stachecki">
+    	<link rel="shortcut icon" href="../img/favicon.ico">
+    	<link rel="stylesheet" type="text/css" href="../css/main.css">
+    	<link rel="stylesheet" type="text/css" href="../css/user.css">
+        <link rel="stylesheet" type="text/css" href="../css/modal.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="content">
+				{{endif}}
+        		<ul class="tiles">
+                    {{for user in _users}}
+        			<li class="tile">
+        				<div class="icon">{{user.username}}</div>
+        			</li>
+                    {{endfor}}
+        		</ul>
+				{{if _full}}
+            </div>
+        	<div class="modal-overlay"></div>
+        </div>
+        <script src="../js/modal.js"></script>
+    </body>
+</html>
+{{endif}}

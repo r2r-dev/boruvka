@@ -258,3 +258,7 @@ div.form-link {
 .menu-link:hover{
     color: #5C5EDC;
 }
+
+.content--loading {
+	background: url('../img/loading.svg') no-repeat 50% 50%;
+}

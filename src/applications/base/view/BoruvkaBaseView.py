@@ -9,13 +9,16 @@ class BoruvkaBaseView(object):
             translation(language)
 
         self._page = HTMLTemplate.from_filename(template)
+        # Render full page
+        self._full = True
 
     # Probably not the best solution...
     def render(self):
         return self._page.substitute(self.__dict__)
 
-    # TODO: do not translate keys starting with "_"
     def __setattr__(self, key, value):
+        if key.startswith("_"):
+            return object.__setattr__(self, key, value)
         if isinstance(value, basestring):
             value = _(value)
         return object.__setattr__(self, key, value)
