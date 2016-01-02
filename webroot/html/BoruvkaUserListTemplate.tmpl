@@ -19,7 +19,14 @@
         		<ul class="tiles">
                     {{for user in _users}}
         			<li class="tile">
-        				<div class="icon">{{user.username}}</div>
+                        <div class="front">
+						    <div class="icon icon-person"></div>
+        				    <div class="title">{{user.username}}</div>
+						    <div class="description">{{user.id}}</div>
+                        </div>
+                        <div class="back hidden">
+                            <div class="icon icon-person"></div>
+                        </div>
         			</li>
                     {{endfor}}
         		</ul>

@@ -1,3 +1,8 @@
+/* inline-blocks hack */
+* {
+    vertical-align: top;
+}
+
 /* Main styles */
 @font-face {
 	font-family: "Flaticon";
@@ -231,13 +236,16 @@ div.form-link {
     color: #5C5EDC;
 }
 
-
 /* Content styles */
 
 .content {
     position: relative;
     min-height: 300px;
     margin: 0 0 0 300px;
+}
+
+.content--loading {
+	background: url('../img/loading.svg') no-repeat 50% 50%;
 }
 
 .tiles {
@@ -253,12 +261,112 @@ div.form-link {
 	margin: 10px;
 	border-radius: 5px;
 	background: #1c1d22;
+
+    opacity: 1;
+    transition: all 2s linear;
+
+    -webkit-animation: fadeInFromNone 0.5s ease-in;
+    -moz-animation: fadeInFromNone 0.5s ease-in;
+    -o-animation: fadeInFromNone 0.5s ease-in;
+    animation: fadeInFromNone 0.5s ease-in;
 }
 
-.tile .icon {
-	font-size: 4em;
-	line-height: 190px;
-	color: #3b3d4a;
+.tile .hidden {
+    display: none;
+}
+
+@-webkit-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: inline-block;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: inline-block;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: inline-block;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: inline-block;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.tile .front .icon {
+    font-family: Flaticon;
+    font-size: 70px;
+    line-height: 80px;
+    margin-top: 40px;
+    color: #3b3d4a;
+}
+
+.tile .back .icon {
+    font-family: Flaticon;
+    font-size: 70px;
+    line-height: 80px;
+    margin-top: 40px;
+    color: #3b3d4a;
+}
+
+.tile .front .title {
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: bold;
+    color: #BDBDBD;
+}
+
+.tile .front .description {
+    font-size: 15px;
+    line-height: 20px;
+    color: #47484c;
 }
 
 /* Menu styles */
@@ -325,10 +433,7 @@ div.form-link {
     color: #5C5EDC;
 }
 
-.content--loading {
-	background: url('../img/loading.svg') no-repeat 50% 50%;
-}
-
+/* User header */
 
 .user-header {
 	margin: 0 0 0 auto;

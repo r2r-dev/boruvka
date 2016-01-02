@@ -103,18 +103,18 @@
     background-color: #5C5EDC;
 }
 
-.modal-effect .modal-content {
+.modal-content {
 	opacity: 0;
 }
 
-.modal-show.modal-effect ~ .container,
-.modal-effect .modal-content {
+.modal-show ~ .container,
+.modal-content {
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
 }
 
-.modal-show.modal-effect .modal-content {
+.modal-show .modal-content {
 	opacity: 1;
 }
 

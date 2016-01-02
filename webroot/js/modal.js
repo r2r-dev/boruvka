@@ -31,28 +31,18 @@ var ModalEffects = (function() {
 			var modal = document.querySelector( '#' + el.getAttribute( 'data-modal' ) ),
 				close = modal.querySelector( '.modal-close' );
 
-			function removeModal( hasPerspective ) {
+			function removeModal() {
 				removeClass( modal, 'modal-show' );
-
-				if( hasPerspective ) {
-					removeClass( document.documentElement, 'modal-perspective' );
-				}
 			}
 
 			function removeModalHandler() {
-				removeModal( hasClass( el, 'modal-setperspective' ) );
+				removeModal();
 			}
 
 			el.addEventListener( 'click', function( ev ) {
 				addClass(modal, 'modal-show');
 				overlay.removeEventListener( 'click', removeModalHandler );
 				overlay.addEventListener( 'click', removeModalHandler );
-
-				if( hasClass(modal, 'modal-setperspective') ) {
-					setTimeout( function() {
-                        addClass(modal, 'modal-perspective');
-					}, 25 );
-				}
 			});
 
 			close.addEventListener( 'click', function( ev ) {

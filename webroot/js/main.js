@@ -34,29 +34,83 @@
         var menu = new Menu(menu_el, ajaxLoader);
 
 		var gridWrapper = document.querySelector('.content');
+        gridWrapper.addEventListener('tiles-loaded', function (e) {
+            TileEffects();
+        }, false);
 
 		function ajaxLoader(ev, data_link) {
 			ev.preventDefault();
 			gridWrapper.innerHTML = '';
 			addClass(gridWrapper, 'content--loading');
 			setTimeout(function() {
+                var event = new Event('tiles-loaded');
 				removeClass(gridWrapper, 'content--loading');
-				 ajaxGet(data_link, gridWrapper);
+                ajaxGet(data_link, gridWrapper, event);
 			}, 700);
 		}
-
 })();
 
-function ajaxGet(data_link, target) {
+function ajaxGet(data_link, target, event) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             target.innerHTML = xhttp.responseText;
+            if (event != undefined) {
+                target.dispatchEvent(event);
+            }
         }
     };
     xhttp.open("GET", data_link, true);
     xhttp.setRequestHeader("X-Requested-With",'XMLHttpRequest');
     xhttp.send();
+}
+
+function replace(a, b) {
+    fade(a);
+    unfade(b);
+}
+
+function fade(element) {
+    var op = 1;  // initial opacity
+    var timer = setInterval(function () {
+        if (op <= 0.1){
+            clearInterval(timer);
+            addClass(element, 'hidden');
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= op * 0.1;
+    }, 10);
+}
+
+function unfade(element) {
+    var op = 0.1;  // initial opacity
+    var timer = setInterval(function () {
+        if (op >= 1){
+            clearInterval(timer);
+            removeClass(element, 'hidden');
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += op * 0.1;
+    }, 10);
+}
+
+function TileEffects() {
+    [].slice.call(document.querySelectorAll('.tile')).forEach(function (el, i) {
+
+        var front = el.querySelector('.front');
+        var back = el.querySelector('.back');
+        var tmp;
+
+        front.addEventListener('mouseover', function (ev) {
+            replace(front, back);
+        });
+
+        back.addEventListener('mouseout', function (ev) {
+            replace(back, front);
+        });
+    });
 }
 
 function hasClass(el, className) {
