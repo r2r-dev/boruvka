@@ -48,14 +48,15 @@
 })();
 
 function ajaxGet(data_link, target) {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (xhttp.readyState == 4 && xhttp.status == 200) {
-        target.innerHTML = xhttp.responseText;
-    }
-  };
-  xhttp.open("GET", data_link, true);
-  xhttp.send();
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            target.innerHTML = xhttp.responseText;
+        }
+    };
+    xhttp.open("GET", data_link, true);
+    xhttp.setRequestHeader("X-Requested-With",'XMLHttpRequest');
+    xhttp.send();
 }
 
 function hasClass(el, className) {

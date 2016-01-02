@@ -16,7 +16,7 @@ class BoruvkaUserListController(BoruvkaAuthorizedController):
             translation=translation,
         )
 
-        view._full = False
+        view._full = not self.request.is_xhr
         view._users = users
 
         response = Response()
