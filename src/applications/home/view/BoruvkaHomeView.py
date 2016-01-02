@@ -16,5 +16,7 @@ class BoruvkaHomeView(BoruvkaBaseView):
         self.machines = "Machines"
         self.users = "Users"
         self.settings = "Settings"
+        self.profile = "Profile"
+        self.logout = "Logout"
 
         self.user = None

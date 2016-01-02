@@ -3,10 +3,12 @@
   "Password": "Haslo",
   "Login": "Zaloguj",
   "Register": "Zarejestruj",
+  "Logout": "Wyloguj",
   "Confirm Password": "Potwierdz Haslo",
   "Home Page": "Strona Glowna",
   "Users": "Uzytkownicy",
   "Tasks": "Zadania",
   "Machines": "Maszyny",
-  "Settings": "Ustawienia"
+  "Settings": "Ustawienia",
+  "Profile": "Profil"
 }
