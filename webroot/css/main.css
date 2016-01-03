@@ -73,24 +73,12 @@ body {
     height: 100vh;
 }
 
-.container.login {
-    background: #1c1d22;
-}
-
 .header {
     display: -webkit-flex;
     display: flex;
     justify-content: center;
     padding: 5vh 0 0 0;
     align-items: center;
-}
-
-.info {
-    font-size: 1.1em;
-    font-weight: bold;
-    padding: 1em 1em 0;
-    text-align: center;
-    color: #47484c;
 }
 
 .notification {
@@ -135,7 +123,19 @@ a:hover {
     height: auto;
 }
 
-/* Form styles */
+/* Login styles */
+
+.container.login {
+    background: #1c1d22;
+}
+
+.info {
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 1em 1em 0;
+    text-align: center;
+    color: #47484c;
+}
 
 .action:focus {
     outline: none;
@@ -194,7 +194,7 @@ a:hover {
     clear: both;
 }
 
-label {
+.info label {
     display: block;
     padding: 40px 5px 5px 2px;
     font-size: 1.1em;
@@ -202,7 +202,7 @@ label {
     cursor: pointer;
 }
 
-input {
+.info input {
     font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-size: 1.4em;
@@ -236,6 +236,7 @@ div.form-link {
     color: #5C5EDC;
 }
 
+/* Login styles end */
 /* Content styles */
 
 .content {

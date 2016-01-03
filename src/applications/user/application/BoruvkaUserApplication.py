@@ -1,5 +1,6 @@
 from src.applications.base.application.BoruvkaBaseApplication import BoruvkaBaseApplication
 from src.applications.user.controller.BoruvkaUserListController import BoruvkaUserListController
+from src.applications.user.controller.BoruvkaUserShowController import BoruvkaUserShowController
 
 
 class BoruvkaUserApplication(BoruvkaBaseApplication):
@@ -11,13 +12,14 @@ class BoruvkaUserApplication(BoruvkaBaseApplication):
             conditions=dict(method=["GET"]),
             action='get',
         )
-        '''self.mapper.connect(
+        self.mapper.connect(
             'user',
-            '/user/{id}',
+            '/user/{user_id}',
             controller=BoruvkaUserShowController,
             conditions=dict(method=["GET"]),
             action='get',
         )
+        '''
         self.mapper.connect(
             'user',
             '/user/{id}/edit',
@@ -46,4 +48,4 @@ class BoruvkaUserApplication(BoruvkaBaseApplication):
             conditions=dict(method=["POST"]),
             action='post',
         )
-'''
+        '''

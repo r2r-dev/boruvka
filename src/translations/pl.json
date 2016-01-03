@@ -1,4 +1,5 @@
 {
+  "Id": "Identyfikator",
   "Username": "Nazwa Uzytkownika",
   "Password": "Haslo",
   "Login": "Zaloguj",
@@ -10,5 +11,6 @@
   "Tasks": "Zadania",
   "Machines": "Maszyny",
   "Settings": "Ustawienia",
-  "Profile": "Profil"
+  "Profile": "Profil",
+  "Close": "Zamknij"
 }

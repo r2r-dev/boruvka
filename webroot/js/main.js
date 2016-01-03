@@ -136,7 +136,6 @@ function ModalEffects() {
     	var overlay = document.querySelector( '.modal-overlay' );
         var modal = document.querySelector('.modal');
         var event = new Event('modal-loaded');
-        //var close = modal.querySelector('.modal-close' );
 
 		[].slice.call( document.querySelectorAll( '.modal-trigger' ) ).forEach( function( el, i ) {
             var data_link = el.getAttribute('data-link');
@@ -152,17 +151,24 @@ function ModalEffects() {
 			el.addEventListener( 'click', function( ev ) {
                 ajaxGet(data_link, modal, event);
 				addClass(modal, 'modal-show');
+
+                // Close modal if user clicked oudside of it
 				overlay.removeEventListener( 'click', removeModalHandler );
 				overlay.addEventListener( 'click', removeModalHandler );
 			});
 
-			/*close.addEventListener( 'click', function( ev ) {
-				ev.stopPropagation();
-				removeModalHandler();
-			});*/
+            modal.addEventListener('modal-loaded', function(ev) {
+                var close = modal.querySelector('.modal-close' );
+
+                if (close != undefined) {
+                    close.addEventListener('click', function (ev) {
+                        ev.stopPropagation();
+                        removeModalHandler();
+                    });
+                }
+    });
 
 		} );
-
 }
 
 
