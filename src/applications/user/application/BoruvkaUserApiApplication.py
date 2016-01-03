@@ -1,9 +1,9 @@
 from src.applications.base.application.BoruvkaBaseApplication import BoruvkaBaseApplication
+from src.applications.user.controller.BoruvkaUserListApiController import BoruvkaUserListApiController
 
 
 class BoruvkaUserApiApplication(BoruvkaBaseApplication):
     def _set_routes(self):
-        '''
         self.mapper.connect(
             'user',
             '/api/user/',
@@ -11,6 +11,7 @@ class BoruvkaUserApiApplication(BoruvkaBaseApplication):
             conditions=dict(method=["GET"]),
             action='get',
         )
+        '''
         self.mapper.connect(
             'user',
             '/api/user/{id}',
