@@ -100,7 +100,7 @@ function TileEffects() {
         //Safe mouseout, prevents from firing functions if event happens on children, not outside of actual element
         back.addEventListener('mouseout', function (ev) {
             var list = traverseChildren(back);
-            var e = event.toElement || event.relatedTarget;
+            var e = ev.toElement || ev.relatedTarget;
             if (!!~list.indexOf(e)) {
                 return;
             }
