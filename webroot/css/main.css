@@ -248,6 +248,9 @@ div.form-link {
 	background: url('../img/loading.svg') no-repeat 50% 50%;
 }
 
+/* Content styles end*/
+/* Tile styles */
+
 .tiles {
 	margin: 0;
 	padding: 2em;
@@ -347,14 +350,6 @@ div.form-link {
     color: #3b3d4a;
 }
 
-.tile .back .icon {
-    font-family: Flaticon;
-    font-size: 70px;
-    line-height: 80px;
-    margin-top: 40px;
-    color: #3b3d4a;
-}
-
 .tile .front .title {
     margin-top: 10px;
     font-size: 18px;
@@ -368,6 +363,50 @@ div.form-link {
     line-height: 20px;
     color: #47484c;
 }
+
+.tile .tile-nav {
+    padding: 1em;
+}
+
+.tile-nav .tile-link {
+    padding-top: 1em;
+    text-align: left;
+    padding-left: 2em;
+    font-weight: 600;
+    position: relative;
+    display: block;
+    color: #47484c;
+    -webkit-transition: color 0.1s;
+    transition: color 0.1s;
+}
+
+.tile-nav .tile-link a {
+    color: #47484c;
+}
+
+.tile-nav .tile-icon {
+	font-family: Flaticon;
+	font-weight: bold;
+    display: inline;
+	font-style: normal;
+	font-variant: normal;
+	text-align: center;
+	text-transform: none;
+    margin-right: 4px;
+    color: #47484c;
+	-webkit-font-smoothing: antialiased;
+	speak: none;
+}
+
+.tile-link:hover .tile-icon {
+    color: #5c5edc;
+}
+
+.tile-link:hover a {
+    color: #bdbdbd;
+}
+
+/* Tile styles end */
 
 /* Menu styles */
 

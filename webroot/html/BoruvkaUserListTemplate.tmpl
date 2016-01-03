@@ -22,10 +22,22 @@
                         <div class="front">
 						    <div class="icon icon-person"></div>
         				    <div class="title">{{user.username}}</div>
-						    <div class="description">{{user.id}}</div>
                         </div>
                         <div class="back hidden">
-                            <div class="icon icon-person"></div>
+                            <ul class="tile-nav">
+                                <li class="tile-link modal-trigger" data-link="/user/{{user.id}}">
+                                    <div class="tile-icon icon-person"></div>
+                                    <a href="#">Details</a>
+                                </li>
+                                <li class="tile-link modal-trigger" data-link="/user/{{user.id}}/edit">
+                                    <div class="tile-icon icon-settings"></div>
+                                    <a href="#">Edit</a>
+                                </li>
+                                <li class="tile-link modal-trigger" data-link="/user/{{user.id}}/delete">
+                                    <div class="tile-icon icon-bin"></div>
+                                    <a href="#">Delete</a>
+                                </li>
+                            </ul>
                         </div>
         			</li>
                     {{endfor}}

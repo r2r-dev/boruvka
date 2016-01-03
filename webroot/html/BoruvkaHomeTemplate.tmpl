@@ -12,15 +12,6 @@
     
     <body>
         <div class="container">
-            <div class="modal modal-effect" id="modal-profile">
-    			<div class="modal-content">
-    				<h3>Modal Dialog</h3>
-    				<div>
-    					<p>This is a modal window.</p>
-    					<button class="modal-close">Close</button>
-    				</div>
-    			</div>
-    		</div>
         	<header class="header">
         		<div class="logo-header">
         			<img class="logo-img" src="../img/logo1.png">
@@ -28,7 +19,7 @@
         		<div class="user-header">
         				<h1 class="user-header__title">{{user}}</h1>
         				<nav class="user-nav">
-        					<a class="user-nav__item user-icon icon-settings modal-trigger" href="/user/{{user}}/edit" data-info="{{profile}}" data-modal="modal-profile">
+        					<a class="user-nav__item user-icon icon-settings modal-trigger" data-link="/user/{{user}}/edit" data-info="{{profile}}">
                                 <span>{{profile}}</span>
                             </a>
         					<a class="user-nav__item user-icon icon-exit" href="/auth/logout" data-info="{{logout}}">
@@ -49,10 +40,16 @@
         		</div>
         	</nav>
 
+            <div class="modal modal-effect">
+    			<div class="modal-content">
+    				<div>
+    					<button class="modal-close">Close</button>
+    				</div>
+    			</div>
+    		</div>
             <div class="content"></div>
         	<div class="modal-overlay"></div>
         </div>
-        <script src="../js/modal.js"></script>
         <script src="../js/main.js"></script>
     </body>
 
