@@ -1,0 +1,67 @@
+{{if _full}}
+<html>
+
+    <head>
+    	<meta charset="UTF-8">
+    	<title>Boruvka: {{title}}</title>
+    	<meta name="description" content="Boruvka: Orchestration made simple">
+    	<meta name="author" content="Artur Stachecki">
+    	<link rel="shortcut icon" href="../img/favicon.ico">
+    	<link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link rel="stylesheet" type="text/css" href="../css/modal.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="content">
+				{{endif}}
+                <div class="modal-content" {{if _full}}style="opacity: 1"{{endif}}>
+                    <form>
+                        <div class="line">
+                            <label for="input">{{username}}</label>
+                            <div class="input">
+                                <input type="text" size="30" name="input" id="username" value={{_user.username}}>
+                            </div>
+                        </div>
+                        <div class="line">
+                            <label for="input">{{password}}</label>
+                            <div class="input">
+                                <input type="password" size="30" name="input" id="password">
+                            </div>
+                        </div>
+                        <div class="line">
+                            <label for="select">{{language}}</label>
+                            <div class="input">
+                                <select name="select">
+                                    <option>1</option>
+                                    <option>2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="line">
+                            <label for="select">{{color}}</label>
+                            <div class="input">
+                                <select name="select">
+                                    <option>1</option>
+                                    <option>2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="submit">
+                            <button class="modal-button">
+                                <span class="action-text">{{save}}</span>
+                            </button>
+                            <button class="modal-button modal-close">
+                                <span class="action-text">{{close}}</span>
+                            </button>
+                    </div>
+                    </form>
+                </div>
+				{{if _full}}
+            </div>
+        	<div class="modal-overlay"></div>
+        </div>
+        <script src="../js/main.js"></script>
+    </body>
+</html>
+{{endif}}

@@ -40,10 +40,10 @@
 
 /* Content styles */
 .modal-content {
-    /*padding-left: 1em;
+    padding-left: 1em;
     padding-right: 1.5em;
     padding-top: 1.5em;
-    padding-bottom: 1.5em;*/
+    padding-bottom: 1.5em;
     color: #cecece;
     background: #1C1D22;
     position: relative;
@@ -76,7 +76,6 @@
 }
 
 .modal-content > div {
-	padding: 15px 40px 30px;
 	margin: 0;
 	font-weight: 300;
 	font-size: 1.15em;
@@ -99,6 +98,7 @@
 
 .modal-content button{
     border: none;
+    outline: none;
     background: #2A2B30;
     color: #fff;
     border-radius: 2px;
@@ -110,6 +110,10 @@
     display: inline-block;
     padding: 10px 30px;
     letter-spacing: 1px;
+}
+
+.modal-content button + button {
+    margin-left: 10px;
 }
 
 .modal-content button:hover {
@@ -133,4 +137,66 @@
 
 @media screen and (max-width: 32em) {
 	body { font-size: 75%; }
+}
+
+.modal-content form {
+    border: none;
+    min-width: 100px;
+    display: inline-block;
+    margin:10px 0;
+}
+
+.modal-content label {
+    color: #cecece;
+    font-size: 13px;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.modal-content input, textarea, select {
+    border: none;
+	outline: none;
+    color: #808080;
+    background-color: #2A2B30;
+    display: inline-block;
+    font-size: 13px;
+    height: 30px;
+    line-height: 30px;
+    padding: 4px;
+    width: 210px;
+    box-shadow: 2px 2px 6px 1px rgba(7, 7, 9, 0.15);
+}
+
+.modal-content select {
+    height: 30px;
+    line-height: 21px;
+	-webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+	text-indent: 0.01px;             /* Removes default arrow from firefox*/
+    text-overflow: "";               /*Removes default arrow from firefox*/
+    background: url('../img/dot.png') no-repeat right #2A2B30;
+    background-size: 4px 4px;
+    background-position: 195px 13px;
+}
+
+.modal-content select:active, select:hover {
+  outline: none;
+}
+
+.modal-content form .input {
+    float: right;
+    height: 30px;
+    margin-left: 20px;
+}
+
+.modal-content form .line {
+    margin-bottom: 18px;
+}
+
+.modal-content form .submit {
+    text-align: right;
 }
