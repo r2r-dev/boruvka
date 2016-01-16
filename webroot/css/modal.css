@@ -160,7 +160,7 @@
     background-color: #2A2B30;
     display: inline-block;
     font-size: 13px;
-    height: 30px;
+    height: 22px;
     line-height: 30px;
     padding: 4px;
     width: 210px;
@@ -170,9 +170,9 @@
 .modal-content select {
     height: 30px;
     line-height: 21px;
+    width: 218px;
 	-webkit-appearance:none;
     -moz-appearance:none;
-    /*appearance:none;*/
     cursor:pointer;
 	text-indent: 0.01px;             /* Removes default arrow from firefox*/
     text-overflow: "";               /*Removes default arrow from firefox*/
@@ -221,7 +221,8 @@
     color: #808080;
 }
 
-:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+:placeholder-shown { /* CSS4 Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
     font-size: 8px;
     color: #808080;
 }
+

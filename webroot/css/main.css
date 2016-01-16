@@ -215,8 +215,6 @@ a:hover {
     font-size: 1.4em;
     padding: 5px 10px;
     color: #47484c;
-    #display: block;
-    #width: 100%;
     background: transparent;
 }
 
@@ -271,7 +269,7 @@ div.form-link {
 	height: 200px;
 	margin: 10px;
 	border-radius: 5px;
-	background: #1c1d22;
+    background: #1c1d22;
 
     opacity: 1;
     transition: all 2s linear;
@@ -497,24 +495,6 @@ div.form-link {
 	height: 0;
 }
 
-.user-tooltip:hover:before {
-	content: attr(data-content);
-	font-size: 110%;
-	font-weight: 700;
-	line-height: 1.2;
-	position: absolute;
-	top: 1.5em;
-	right: 0;
-	width: 50vw;
-	padding: 0.8em 1em;
-	text-align: right;
-	text-indent: 0;
-	letter-spacing: 0;
-	text-transform: none;
-	color: #cecece;
-	background: #5c5edc;
-}
-
 .user-nav__item {
 	position: relative;
 	display: inline-block;
@@ -538,7 +518,6 @@ div.form-link {
 	right: 0;
 	width: 600%;
 	text-align: right;
-	pointer-events: none;
 	color: #595a5f;
 }
 
