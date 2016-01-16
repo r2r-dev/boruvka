@@ -10,17 +10,19 @@ from webob import Response
 # Open database connection
 class BoruvkaUserEditController(BoruvkaAuthorizedController):
     def get(self, user_id):
-        api = BoruvkaUserApi(self.dao)
+        user_api = BoruvkaUserApi(self.dao)
 
-        user = api.get_user(
-            id=user_id,
-        )
+        viewer_id = self.session['user_id']
+
+        user = user_api.get_user(id=user_id)
 
         setting_query = BoruvkaSettingQuery(self.dao)
+
         user_settings = setting_query.get_user_settings(user_id)
         allowed_settings = setting_query.get_settings()
-        translation = user_settings['language']
 
+        viewer_settings = setting_query.get_user_settings(viewer_id)
+        translation = viewer_settings['language']
         view = BoruvkaUserEditView(
             translation=translation,
         )
@@ -35,7 +37,8 @@ class BoruvkaUserEditController(BoruvkaAuthorizedController):
         return response
 
     def post(self, user_id):
-        api = BoruvkaUserApi(self.dao)
+        user_api = BoruvkaUserApi(self.dao)
+        viewer_id = self.session['user_id']
         params = self.request.params
 
         message = None
@@ -46,7 +49,7 @@ class BoruvkaUserEditController(BoruvkaAuthorizedController):
             response_dict[key] = value
 
         try:
-            api.update_user(
+            user_api.update_user(
                 user_id=user_id,
                 payload=response_dict,
             )
@@ -55,15 +58,16 @@ class BoruvkaUserEditController(BoruvkaAuthorizedController):
         else:
             message = "Saved"
 
-        user = api.get_user(
+        user = user_api.get_user(
             id=user_id,
         )
 
         setting_query = BoruvkaSettingQuery(self.dao)
         user_settings = setting_query.get_user_settings(user_id)
         allowed_settings = setting_query.get_settings()
-        translation = user_settings['language']
 
+        viewer_settings = setting_query.get_user_settings(viewer_id)
+        translation = viewer_settings['language']
         view = BoruvkaUserEditView(
             translation=translation,
         )
