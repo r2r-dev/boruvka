@@ -124,7 +124,7 @@ class BoruvkaSQLDao:
         )
         result = []
         for row_data in cursor.fetchall():
-            clazz()
+            obj = clazz()
             self._update_object_from_cursor(
                 row_data,
                 cursor,

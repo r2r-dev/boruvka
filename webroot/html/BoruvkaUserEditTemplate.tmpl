@@ -39,8 +39,13 @@
                             <label for="language">{{language}}</label>
                             <div class="input">
                                 <select id="language">
-                                    <option>1</option>
-                                    <option>2</option>
+                                    {{for language_setting in _settings['language']}}
+                                        {{if language_setting == _user_settings['language']}}
+                                        <option selected>{{language_setting}}</option>
+                                        {{else}}
+                                        <option>{{language_setting}}</option>
+                                        {{endif}}
+                                    {{endfor}}
                                 </select>
                             </div>
                         </div>
@@ -48,8 +53,13 @@
                             <label for="color">{{color}}</label>
                             <div class="input">
                                 <select id="color">
-                                    <option>1</option>
-                                    <option>2</option>
+                                    {{for color_setting in _settings['color']}}
+                                        {{if color_setting == _user_settings['color']}}
+                                        <option selected>{{color_setting}}</option>
+                                        {{else}}
+                                        <option>{{color_setting}}</option>
+                                        {{endif}}
+                                    {{endfor}}
                                 </select>
                             </div>
                         </div>

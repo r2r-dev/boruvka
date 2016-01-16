@@ -18,6 +18,10 @@ class BoruvkaUserEditView(BoruvkaBaseView):
         self.color = "Color"
         self.close = "Close"
         self.save = "Save"
-        self._user = None
+
         self.message = None
         self.error = None
+
+        self._settings = None
+        self._user_settings = None
+        self._user = None

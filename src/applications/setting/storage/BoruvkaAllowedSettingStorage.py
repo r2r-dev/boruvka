@@ -8,3 +8,4 @@ class BoruvkaAllowedSettingStorage(object):
         self.id = None
         self.settingId = None
         self.value = None
+        self.default = None

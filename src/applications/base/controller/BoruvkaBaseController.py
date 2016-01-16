@@ -44,7 +44,7 @@ class BoruvkaBaseController(object):
                     self,
                     action,
                 )(**kwargs)
-            except AttributeError:
+            except AttributeError, e:
                 raise exc.HTTPNotFound("No action {0:s}".format(action))
             if isinstance(
                     response,

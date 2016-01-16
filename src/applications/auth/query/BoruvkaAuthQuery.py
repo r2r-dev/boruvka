@@ -14,7 +14,7 @@ class BoruvkaAuthQuery(BoruvkaBaseQuery):
         conditions = []
         values = []
         for key, value in kwargs.items():
-            condition = "{0:s} = %s".format(key)
+            condition = "`{0:s}` = %s".format(key)
             conditions.append(condition)
             values.append(value)
         where_clause = " AND ".join(conditions)

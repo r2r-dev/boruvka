@@ -5,7 +5,7 @@ from src.applications.base.api.BoruvkaBaseApi import (
 )
 from src.applications.user.storage.BoruvkaUserStorage import BoruvkaUserStorage
 from src.applications.user.query.BoruvkaUserQuery import BoruvkaUserQuery
-#from src.applications.setting.query.BoruvkaSettingQuery import BoruvkaSettingQuery
+from src.applications.setting.query.BoruvkaSettingQuery import BoruvkaSettingQuery
 from src.applications.auth.api.BoruvkaAuthApi import BoruvkaAuthApi
 
 
@@ -23,10 +23,12 @@ class BoruvkaUserApi(BoruvkaBaseApi):
         return user
 
     @jsonize
-    def update_user(self, id, payload):
+    def update_user(self, user_id, payload):
         user_query = BoruvkaUserQuery(self._dao)
+        settings_query = BoruvkaSettingQuery(self._dao)
+
         user = user_query.get_user(
-            id=id,
+            id=user_id,
         )
 
         username = payload['username']
@@ -42,10 +44,19 @@ class BoruvkaUserApi(BoruvkaBaseApi):
                 password,
             )
 
-        language = payload['language']
-        color = payload['color']
-        image = payload['image']
-
         self._dao.update(user)
+
+        # TODO, make setting options more generic
+        options = {
+            'language': payload['language'],
+            'color': payload['color'],
+        }
+
+        settings_query.set_user_settings(
+            user_id=user_id,
+            options=options,
+        )
+
+        #image = payload['image']
 
         return

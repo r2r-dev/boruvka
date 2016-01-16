@@ -2,6 +2,8 @@ from src.applications.auth.controller.BoruvkaAuthorizedController import Boruvka
 from src.applications.user.api.BoruvkaUserApi import BoruvkaUserApi
 from src.applications.base.api.BoruvkaBaseApi import BoruvkaApiException
 from src.applications.user.view.BoruvkaUserEditView import BoruvkaUserEditView
+from src.applications.setting.query.BoruvkaSettingQuery import BoruvkaSettingQuery
+
 from webob import Response
 
 
@@ -14,14 +16,19 @@ class BoruvkaUserEditController(BoruvkaAuthorizedController):
             id=user_id,
         )
 
-        # TODO: move translations handling to BaseController
-        translation = list(self.request.accept_language)[0]
+        setting_query = BoruvkaSettingQuery(self.dao)
+        user_settings = setting_query.get_user_settings(user_id)
+        allowed_settings = setting_query.get_settings()
+        translation = user_settings['language']
+
         view = BoruvkaUserEditView(
             translation=translation,
         )
 
         view._full = not self.request.is_xhr
         view._user = user
+        view._settings = allowed_settings
+        view._user_settings = user_settings
 
         response = Response()
         response.body = view.render()
@@ -39,8 +46,8 @@ class BoruvkaUserEditController(BoruvkaAuthorizedController):
             response_dict[key] = value
 
         try:
-            api_response = api.update_user(
-                id=user_id,
+            api.update_user(
+                user_id=user_id,
                 payload=response_dict,
             )
         except BoruvkaApiException, e:
@@ -52,14 +59,20 @@ class BoruvkaUserEditController(BoruvkaAuthorizedController):
             id=user_id,
         )
 
-        # TODO: move translations handling to BaseController
-        translation = list(self.request.accept_language)[0]
+        setting_query = BoruvkaSettingQuery(self.dao)
+        user_settings = setting_query.get_user_settings(user_id)
+        allowed_settings = setting_query.get_settings()
+        translation = user_settings['language']
+
         view = BoruvkaUserEditView(
             translation=translation,
         )
 
         view._full = not self.request.is_xhr
         view._user = user
+        view._settings = allowed_settings
+        view._user_settings = user_settings
+
         view.message = message
         view.error = error
 

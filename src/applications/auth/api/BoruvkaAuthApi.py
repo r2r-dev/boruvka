@@ -1,5 +1,6 @@
 from src.applications.user.query.BoruvkaUserQuery import BoruvkaUserQuery
 from src.applications.auth.query.BoruvkaAuthQuery import BoruvkaAuthQuery
+from src.applications.setting.query.BoruvkaSettingQuery import BoruvkaSettingQuery
 from src.applications.base.api.BoruvkaBaseApi import (
     BoruvkaBaseApi,
     jsonize,
@@ -27,16 +28,15 @@ class BoruvkaAuthApi(BoruvkaBaseApi):
         )
 
         user_query = BoruvkaUserQuery(self._dao)
-        user_query.create_user(
+        user = user_query.create_user(
             username=username,
             password=hashed_password,
         )
 
-         # TODO: set default settings
-#        settings_query = BoruvkaSettingsQuery(self._dao)
-#        settings_query.create_setting(
-#            id=user.id,
-#        )
+        settings_query = BoruvkaSettingQuery(self._dao)
+        settings_query.create_user_settings(
+            user_id=user.id,
+        )
         return True
 
     @jsonize
