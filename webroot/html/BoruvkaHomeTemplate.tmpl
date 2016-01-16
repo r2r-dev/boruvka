@@ -20,7 +20,8 @@
         		<div class="user-header">
         				<h1 class="user-header__title">{{user.username}}</h1>
         				<nav class="user-nav">
-        					<a class="user-nav__item user-icon icon-settings modal-trigger" data-link="/user/{{user.id}}/edit" data-info="{{profile}}">
+        					<a class="user-nav__item user-icon icon-settings modal-trigger"
+							   data-link="/user/{{user.id}}/edit" data-info="{{profile}}" href="#">
                                 <span>{{profile}}</span>
                             </a>
         					<a class="user-nav__item user-icon icon-exit" href="/auth/logout" data-info="{{logout}}">
