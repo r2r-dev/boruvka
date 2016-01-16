@@ -172,7 +172,7 @@
     line-height: 21px;
 	-webkit-appearance:none;
     -moz-appearance:none;
-    appearance:none;
+    /*appearance:none;*/
     cursor:pointer;
 	text-indent: 0.01px;             /* Removes default arrow from firefox*/
     text-overflow: "";               /*Removes default arrow from firefox*/
@@ -197,4 +197,31 @@
 
 .modal-content form .submit {
     text-align: right;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    font-size: 8px;
+    color: #808080;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   font-size: 8px;
+   color: #808080;
+   opacity:  1;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   font-size: 8px;
+   color: #808080;
+   opacity:  1;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-size: 8px;
+    color: #808080;
+}
+
+:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+    font-size: 8px;
+    color: #808080;
 }
