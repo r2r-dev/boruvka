@@ -17,9 +17,9 @@
         			<img class="logo-img" src="../img/logo1.png">
         		</div>
         		<div class="user-header">
-        				<h1 class="user-header__title">{{user}}</h1>
+        				<h1 class="user-header__title">{{user.username}}</h1>
         				<nav class="user-nav">
-        					<a class="user-nav__item user-icon icon-settings modal-trigger" data-link="/user/{{user}}/edit" data-info="{{profile}}">
+        					<a class="user-nav__item user-icon icon-settings modal-trigger" data-link="/user/{{user.id}}/edit" data-info="{{profile}}">
                                 <span>{{profile}}</span>
                             </a>
         					<a class="user-nav__item user-icon icon-exit" href="/auth/logout" data-info="{{logout}}">
