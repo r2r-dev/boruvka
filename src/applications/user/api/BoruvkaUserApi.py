@@ -32,11 +32,6 @@ class BoruvkaUserApi(BoruvkaBaseApi):
         )
 
         username = payload['username']
-        if len(username) > 0:
-            user.username = username
-        else:
-            raise BoruvkaApiException("Username cannot be empty")
-
         password = payload['password']
         if len(password) > 0:
             user.password = BoruvkaAuthApi.hash_password(
