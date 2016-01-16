@@ -19,3 +19,5 @@ class BoruvkaUserEditView(BoruvkaBaseView):
         self.close = "Close"
         self.save = "Save"
         self._user = None
+        self.message = None
+        self.error = None

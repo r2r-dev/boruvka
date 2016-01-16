@@ -16,45 +16,57 @@
             <div class="content">
 				{{endif}}
                 <div class="modal-content" {{if _full}}style="opacity: 1"{{endif}}>
-                    <form>
+                    {{if error}}
+                    <div class="notification error">{{error}}</div>
+                    {{endif}}
+                    {{if message}}
+                    <div class="notification message">{{message}}</div>
+                    {{endif}}
+                    <form class="modal-form" data-link="/user/{{_user.id}}/edit">
                         <div class="line">
-                            <label for="input">{{username}}</label>
+                            <label for="username">{{username}}</label>
                             <div class="input">
-                                <input type="text" size="30" name="input" id="username" value={{_user.username}}>
+                                <input type="text" size="30" id="username" value={{_user.username}}>
                             </div>
                         </div>
                         <div class="line">
-                            <label for="input">{{password}}</label>
+                            <label for="password">{{password}}</label>
                             <div class="input">
-                                <input type="password" size="30" name="input" id="password">
+                                <input type="password" size="30" id="password">
                             </div>
                         </div>
                         <div class="line">
-                            <label for="select">{{language}}</label>
+                            <label for="language">{{language}}</label>
                             <div class="input">
-                                <select name="select">
+                                <select id="language">
                                     <option>1</option>
                                     <option>2</option>
                                 </select>
                             </div>
                         </div>
                         <div class="line">
-                            <label for="select">{{color}}</label>
+                            <label for="color">{{color}}</label>
                             <div class="input">
-                                <select name="select">
+                                <select id="color">
                                     <option>1</option>
                                     <option>2</option>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="line">
+                            <label for="image">Image</label>
+                            <div class="input">
+                                <input type="file" id="image">
                             </div>
                         </div>
                         <div class="submit">
-                            <button type="button" class="modal-button">
+                            <button type="button" class="modal-button modal-submit">
                                 <span class="action-text">{{save}}</span>
                             </button>
                             <button type="button" class="modal-button modal-close">
                                 <span class="action-text">{{close}}</span>
                             </button>
-                    </div>
+                        </div>
                     </form>
                 </div>
 				{{if _full}}

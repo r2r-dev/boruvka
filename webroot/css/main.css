@@ -84,11 +84,18 @@ body {
 .notification {
     margin-top: 40px;
     padding: 12px;
+    text-align: center;
+    font-weight: bold;
 }
 
 .notification.error {
     color: #cecece;
     background: #872CC5;
+}
+
+.notification.message {
+    color: #cecece;
+    background: #143C35;
 }
 
 a {

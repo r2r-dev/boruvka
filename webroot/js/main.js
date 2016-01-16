@@ -135,10 +135,13 @@ function traverseChildren(elem){
 function ModalEffects() {
     	var overlay = document.querySelector( '.modal-overlay' );
         var modal = document.querySelector('.modal');
-        var event = new Event('modal-loaded');
 
 		[].slice.call( document.querySelectorAll( '.modal-trigger' ) ).forEach( function( el, i ) {
             var data_link = el.getAttribute('data-link');
+
+            // Use unique event ids, otherwise we are listening to all modals
+            var event_guid = guid();
+            var event = new Event(event_guid);
 
 			function removeModal() {
 				removeClass( modal, 'modal-show' );
@@ -157,8 +160,9 @@ function ModalEffects() {
 				overlay.addEventListener( 'click', removeModalHandler );
 			});
 
-            modal.addEventListener('modal-loaded', function(ev) {
+            modal.addEventListener(event_guid, function(ev) {
                 var close = modal.querySelector('.modal-close' );
+                var form = modal.querySelector('.modal-form');
 
                 if (close != undefined) {
                     close.addEventListener('click', function (ev) {
@@ -166,11 +170,52 @@ function ModalEffects() {
                         removeModalHandler();
                     });
                 }
-    });
 
-		} );
+                if (form != undefined) {
+                    // pass parent modal and event, allowing to control form after submission
+                    // by dispatching the very same event
+                    initializeForm(form, modal, event);
+                }
+            });
+		});
 }
 
+function initializeForm(form, modal, event) {
+    var submit = form.querySelector('.modal-submit');
+
+    if (submit != undefined) {
+        submit.addEventListener('click', function (ev) {
+           ev.stopPropagation();
+           submitForm(form, modal, event);
+        });
+    }
+}
+
+function submitForm(form, modal, event) {
+    var data_link = form.getAttribute('data-link');
+    var formData = new FormData();
+    [].forEach.call(form.querySelectorAll('.input'), function( el ) {
+        var input = el.childNodes[1];
+        var name = input.id;
+        var data;
+
+        if (input.localName == 'input') {
+            if (input.type == 'file' && input.files.length > 0) {
+                data = input.files[0];
+            } else {
+                data = input.value;
+
+            }
+        } else if (input.localName == 'select') {
+            data = input.options[input.selectedIndex].text;
+        }
+
+        if (data != undefined) {
+            formData.append(name, data);
+        }
+    });
+    ajaxPost(data_link, modal, formData, event);
+}
 
 /* Helper functions */
 function hasClass(el, className) {
@@ -195,6 +240,15 @@ function removeClass(el, className) {
 	}
 }
 
+function guid() {
+    function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+    }
+    return 'i' + s4() + s4() + s4() + s4() + s4() + s4();
+}
+
 function ajaxGet(data_link, target, event) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -208,4 +262,19 @@ function ajaxGet(data_link, target, event) {
     xhttp.open("GET", data_link, true);
     xhttp.setRequestHeader("X-Requested-With",'XMLHttpRequest');
     xhttp.send();
+}
+
+function ajaxPost(data_link, target, form, event) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            target.innerHTML = xhttp.responseText;
+            if (event != undefined) {
+                target.dispatchEvent(event);
+            }
+        }
+    };
+    xhttp.open("POST", data_link, true);
+    xhttp.setRequestHeader("X-Requested-With",'XMLHttpRequest');
+    xhttp.send(form);
 }
