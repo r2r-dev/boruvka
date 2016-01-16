@@ -21,7 +21,7 @@ class BoruvkaAuthApi(BoruvkaBaseApi):
         username = payload['username']
         password = payload['password']
 
-        hashed_password = self.__hash_password(
+        hashed_password = self.hash_password(
             username,
             password,
         )
@@ -44,7 +44,7 @@ class BoruvkaAuthApi(BoruvkaBaseApi):
         username = payload['username']
         password = payload['password']
 
-        hashed_password = self.__hash_password(
+        hashed_password = self.hash_password(
             username,
             password,
         )
@@ -101,7 +101,8 @@ class BoruvkaAuthApi(BoruvkaBaseApi):
         token.expirationDate = 0
         self._dao.update(token)
 
-    def __hash_password(self, username, password):
+    @staticmethod
+    def hash_password(username, password):
         count = 0
         salt = ''
         for char in username:

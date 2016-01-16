@@ -16,3 +16,7 @@ def jsonize(func):
 class BoruvkaBaseApi(object):
     def __init__(self, dao):
         self._dao = dao
+
+
+class BoruvkaApiException(Exception):
+    pass

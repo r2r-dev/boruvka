@@ -1,5 +1,6 @@
 from src.applications.auth.controller.BoruvkaAuthorizedController import BoruvkaAuthorizedController
 from src.applications.user.api.BoruvkaUserApi import BoruvkaUserApi
+from src.applications.base.api.BoruvkaBaseApi import BoruvkaApiException
 from src.applications.user.view.BoruvkaUserEditView import BoruvkaUserEditView
 from webob import Response
 
@@ -28,6 +29,24 @@ class BoruvkaUserEditController(BoruvkaAuthorizedController):
 
     def post(self, user_id):
         api = BoruvkaUserApi(self.dao)
+        params = self.request.params
+
+        message = None
+        error = None
+
+        response_dict = {}
+        for key, value in params.items():
+            response_dict[key] = value
+
+        try:
+            api_response = api.update_user(
+                id=user_id,
+                payload=response_dict,
+            )
+        except BoruvkaApiException, e:
+            error = e
+        else:
+            message = "Saved"
 
         user = api.get_user(
             id=user_id,
@@ -41,7 +60,8 @@ class BoruvkaUserEditController(BoruvkaAuthorizedController):
 
         view._full = not self.request.is_xhr
         view._user = user
-        view.message = "Saved"
+        view.message = message
+        view.error = error
 
         response = Response()
         response.body = view.render()
