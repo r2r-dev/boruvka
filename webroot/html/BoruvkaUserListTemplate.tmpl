@@ -20,7 +20,11 @@
                     {{for user in _users}}
         			<li class="tile">
                         <div class="front">
+                            {{if _users_settings[user.id]['image']}}
+                            <img class="circular" src="../img/user/{{_users_settings[user.id]['image']}}">
+                            {{else}}
 						    <div class="icon icon-person"></div>
+                            {{endif}}
         				    <div class="title">{{user.username}}</div>
                         </div>
                         <div class="back hidden">

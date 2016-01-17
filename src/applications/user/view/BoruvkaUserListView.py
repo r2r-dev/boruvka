@@ -13,3 +13,4 @@ class BoruvkaUserListView(BoruvkaBaseView):
 
         self.title = "User List"
         self._users = {}
+        self._users_settings = {}
