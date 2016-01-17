@@ -18,6 +18,7 @@ class BoruvkaHomeController(BoruvkaAuthorizedController):
         view = BoruvkaHomeView(translation)
 
         view.user = user
+        view._color = user_settings['color']
 
         response = Response()
         response.body = view.render()
